@@ -6,7 +6,7 @@ Codes and Reports for some Kaggle Competitions
 Ask a home buyer to describe their dream house, and they probably won't begin with the height of the basement ceiling or the proximity to an east-west railroad. But this playground competition's dataset proves that much more influences price negotiations than the number of bedrooms or a white-picket fence.
 With 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa, this competition challenges you to predict the final price of each home.
 
-    - [House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/)
+   - [House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/)
 
 2. Project 2
 
@@ -16,7 +16,7 @@ In this competition, you’ll benchmark machine learning models on a challenging
 
 If successful, you’ll improve the efficacy of fraudulent transaction alerts for millions of people around the world, helping hundreds of thousands of businesses reduce their fraud loss and increase their revenue. And of course, you will save party people just like you the hassle of false positives.
 
-    - [IEEE-CIS Fraud Detection](https://www.kaggle.com/c/ieee-fraud-detection)
+   - [IEEE-CIS Fraud Detection](https://www.kaggle.com/c/ieee-fraud-detection)
 
 3. Project 3
 
