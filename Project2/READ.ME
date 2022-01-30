@@ -1,0 +1,159 @@
+This project was created to be used in a colab notebook, i.e. the path of file consider the path of drive below:
+"/content/drive/MyDrive/Data_Science_Competitions/Project2"
+
+The Main file train the models and , at the end, creates a kaggle_submission.csv
+
+Paths of the project
+#----------------------------------------------------------------------------
+Data_Science_Competitions
+    Project2
+        Data
+            sample_submission.csv
+            test_identity.csv
+            test_transaction.csv
+            train_transaction.csv
+            train_identity.csv
+        Utils
+            model_params
+                model_classifiers.py
+            preprocessing
+                data_treatment.py
+                data_preprocessing.py
+        Main.py
+        Train_Test_model.py
+        kaggle_submission.py
+        trash_predict.py
+        READ.ME
+#---------------------------------------------------------------------------
+
+DESCRIPTION OF FILES
+
+-data_treatment.py
+    
+    drop_Nan_columns(df, drop_limit=0.7):
+    ''' drop columns with my Nan values
+    Args:
+      df, DataFrame
+      drop_limit, percentage limit of Nan values in a column
+    Return:
+      Nan_dropped, list of features dropped
+    '''
+
+    nunique_upperBound_columns(df, p_upper_bound=0.85, drop_nunique=False):
+    '''get columns with unique values above upper bound
+    Args:
+      df, DataFrame
+      upper_bound, percentage of samples above upper bound
+      drop_nunique, drop the nunique_features above upper bound if True
+    Return:
+      nunique_features, dict of samples of above upper bound
+    '''
+
+    undersample_boostrap(inputs: pd.DataFrame, targets: pd.DataFrame, bootstrap_size=1000):
+    '''undersample a Daframe with with features(inputs) and targets
+    Args:
+      inputs, DataFrame with the features
+      targets, Datframe with the targets
+    Return:
+      undersampled_data,
+      undersampled_targets,
+    '''
+
+    domain_reliability(df, columns, p_trustfull_above=0.01):
+    '''creates a column with the domain reliability of each sample
+    Args:
+      df, DataFrame
+      columns, list of columns to analyse realiability
+      p_trustfull_above, percentage of trusted domains
+    Return:
+      domain_values, dict with the numbers of samples in each domain
+    '''
+
+    feature_eng(df, reliability_columns):
+    '''applying feature engineering of the Dataframe
+    Args:
+      df, DataFrame
+      reliability_columns, columns to be used in domain_reliability function
+    Return:
+      dropped_columns, columns dropped by drop_Nan_columns and nunique_upperBound_columns functions
+    '''
+
+
+-data_preprocessing.py
+
+    preproc_normalize(X_train=None, X_test=None, y_train=None, y_test=None, scaler=None, scaler_trigger=False, X_test_trigger=True):
+    '''normilize the data with MinMaxScaler
+    Args:
+      X_train, X_test, y_train, y_test
+    Return:
+      X_train, X_test, y_train, y_test
+    '''
+
+    preprocess(X_train=None, X_test=None, y_train=None, y_test=None, categorical_features=None, numerical_features=None, normalize_fn=None, scaler_fn=None, scaler_trigger=False, X_test_trigger=True):
+    '''replace Nan values of categorical and numerical features. Moreover, transform categorical features in numerical data
+    Args:
+      X_train, X_test, y_train, y_test
+      categorical_features, list with the name of the categorical columns
+      numerical_features, list with the name of the numerical columns
+    Return:
+      X_train, X_test, y_train, y_test
+    '''
+
+-model_classifiers.py
+    classifiers and yours hyperparameters to be searched
+
+-Train_Test_model.py
+
+    Train_model(sgd_n_calls, ridge_false_n_calls, ridge_positive_n_calls, perceptron_n_calls, mlp_n_calls, gaussian_process_n_calls, plot=False):
+    '''Apply feature engineering(data_treatment) and preprocessing to the train data. Furthermore, do optimization of hyperparameters by pipeline 
+       and BayesSearch CV. At the end, save results and creat plots for analysis
+    Args:
+      sgd_n_calls, ridge_false_n_calls, ridge_positive_n_calls, perceptron_n_calls, mlp_n_calls, gaussian_process_n_calls ; number of calls for bayesian oprimization
+      plot, if plot is True, the function create plot of dependes, convergence, ROC and Confusion Matrix
+    Return:
+      dropped_columns, columns droppend from train data
+    '''
+
+-kaggle_submission.py
+
+    submission(dropped_columns):
+    '''Read best model and predict the file Test of kaggle, at the end creates kaggle_submission.csv with predictions 
+    Args:
+      dropped_columns, columns to be dropped from Test file(obtained in training)
+    Return:
+      None
+    '''
+
+-Main.py
+
+    Main(list_of_calls, trigger_plot=False):
+    '''Train models and create kaggle submission
+    Args:
+      list_of_calls, list with the number of calls for each model
+      trigger_plot, if True, create plots of dependence, convergence, ROC and confusion Matrix
+    Return:
+      None
+    '''
+
+
+-trash_predict.py
+
+    models_prediction():
+  '''predict the train data for three models: random_model, only_Fraud_model and only_no_Fraud_model. At the end, creates a ROC Plot for the models
+  Args:
+    None
+  Return:
+    None
+  '''
+
+
+
+
+
+
+
+
+
+
+
+
